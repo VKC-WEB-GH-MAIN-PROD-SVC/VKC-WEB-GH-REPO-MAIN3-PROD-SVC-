@@ -1,19 +1,18 @@
 // Year
 document.getElementById("year").textContent = new Date().getFullYear();
 
-// Smooth scroll (controlled)
+// Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener("click", (e) => {
     const href = a.getAttribute("href");
     const target = document.querySelector(href);
     if (!target) return;
-
     e.preventDefault();
     target.scrollIntoView({ behavior: "smooth", block: "start" });
   });
 });
 
-// Scroll spy (underline only; CSS handles underline)
+// Scroll spy (underline only via CSS ::after)
 const sections = document.querySelectorAll("section");
 const navLinks = document.querySelectorAll(".nav__links a");
 
@@ -29,11 +28,10 @@ function updateActiveNav() {
     link.classList.toggle("active", link.getAttribute("href") === `#${current}`);
   });
 }
-
 window.addEventListener("scroll", updateActiveNav, { passive: true });
 window.addEventListener("load", updateActiveNav);
 
-// Reveal on scroll (Cards = fade + slide)
+// Reveal on scroll
 const reveals = document.querySelectorAll(".reveal");
 function revealOnScroll() {
   reveals.forEach(el => {
@@ -44,7 +42,7 @@ function revealOnScroll() {
 window.addEventListener("scroll", revealOnScroll, { passive: true });
 window.addEventListener("load", revealOnScroll);
 
-// Top progress line (gradient)
+// Top progress line
 const progressBar = document.createElement("div");
 progressBar.style.position = "fixed";
 progressBar.style.top = "0";
@@ -65,7 +63,7 @@ function updateProgress() {
 window.addEventListener("scroll", updateProgress, { passive: true });
 window.addEventListener("load", updateProgress);
 
-// Magnetic buttons (subtle boutique)
+// Magnetic buttons (subtle)
 document.querySelectorAll(".magnetic").forEach(btn => {
   btn.addEventListener("mousemove", (e) => {
     const rect = btn.getBoundingClientRect();
@@ -73,13 +71,12 @@ document.querySelectorAll(".magnetic").forEach(btn => {
     const y = e.clientY - rect.top - rect.height / 2;
     btn.style.transform = `translate(${x * 0.12}px, ${y * 0.12}px) translateZ(0)`;
   });
-
   btn.addEventListener("mouseleave", () => {
     btn.style.transform = "translate(0,0) translateZ(0)";
   });
 });
 
-// Card/Case spotlight follows cursor (premium, not loud)
+// Spotlight cursor for cards/cases
 function attachSpotlight(el) {
   el.addEventListener("mousemove", (e) => {
     const r = el.getBoundingClientRect();
@@ -91,7 +88,7 @@ function attachSpotlight(el) {
 }
 document.querySelectorAll("[data-spotlight]").forEach(attachSpotlight);
 
-// Hero parallax orbs (mouse + scroll) — controlled
+// Hero orb parallax (mouse + scroll)
 const orbs = {
   a: document.querySelector(".orb--a"),
   b: document.querySelector(".orb--b"),
@@ -100,8 +97,8 @@ const orbs = {
 
 let mouseX = 0, mouseY = 0;
 window.addEventListener("mousemove", (e) => {
-  mouseX = (e.clientX / window.innerWidth) - 0.5;   // -0.5..0.5
-  mouseY = (e.clientY / window.innerHeight) - 0.5;  // -0.5..0.5
+  mouseX = (e.clientX / window.innerWidth) - 0.5;
+  mouseY = (e.clientY / window.innerHeight) - 0.5;
 }, { passive: true });
 
 function parallaxTick() {
