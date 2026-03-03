@@ -1,120 +1,194 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>BetweenCloud | Enterprise Architecture Advisory</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BetweenCloud | Enterprise Architecture Advisory</title>
+  <meta name="description" content="Enterprise Microsoft 365 & Azure architecture advisory specialising in governance, identity control frameworks and board-level defensible transformation." />
 
-<link rel="stylesheet" href="styles.css" />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<div class="ambient-bg"></div>
+<!-- Ambient background layer -->
+<div class="ambient-bg" aria-hidden="true">
+  <div class="orb orb--a"></div>
+  <div class="orb orb--b"></div>
+  <div class="orb orb--c"></div>
+</div>
 
 <nav class="nav">
   <div class="container nav__inner">
 
-    <div class="brand">
-      <svg viewBox="0 0 400 90" class="brand-svg" xmlns="http://www.w3.org/2000/svg">
-
+    <!-- LOGO: tight frame + gradient sweep stroke -->
+    <a class="brand" href="#top" aria-label="BetweenCloud Home">
+      <svg viewBox="0 0 392 86" class="brand-svg" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="BetweenCloud">
         <defs>
-          <linearGradient id="movingGradient" x1="0%" y1="0%" x2="200%" y2="0%">
+          <!-- Base gradient -->
+          <linearGradient id="bcBaseGrad" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stop-color="#7c5cff"/>
-            <stop offset="50%" stop-color="#22d3ee"/>
-            <stop offset="100%" stop-color="#7c5cff"/>
+            <stop offset="100%" stop-color="#22d3ee"/>
+          </linearGradient>
+
+          <!-- Sweep gradient: narrow bright band moving across stroke -->
+          <linearGradient id="bcSweepGrad" x1="0" y1="0" x2="140" y2="0" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="rgba(124,92,255,0)" />
+            <stop offset="0.35" stop-color="rgba(124,92,255,0.15)" />
+            <stop offset="0.5" stop-color="rgba(34,211,238,0.95)" />
+            <stop offset="0.65" stop-color="rgba(34,211,238,0.15)" />
+            <stop offset="1" stop-color="rgba(34,211,238,0)" />
+            <animateTransform
+              attributeName="gradientTransform"
+              type="translate"
+              dur="5.2s"
+              repeatCount="indefinite"
+              values="-180 0; 460 0; -180 0"
+              keyTimes="0; 0.5; 1"
+              calcMode="linear"
+            />
           </linearGradient>
         </defs>
 
-        <rect x="18" y="22" width="364" height="46"
-              rx="12" ry="12"
-              fill="none"
-              stroke="url(#movingGradient)"
-              stroke-width="3"
-              class="logo-frame"/>
+        <!-- Frame hugs text (no side dead space) -->
+        <rect x="14" y="20" width="364" height="46" rx="12" ry="12"
+              fill="none" stroke="url(#bcBaseGrad)" stroke-width="3" opacity="0.95"/>
 
-        <text x="200" y="54"
+        <!-- Sweep overlay (true gradient sweep, seamless) -->
+        <rect x="14" y="20" width="364" height="46" rx="12" ry="12"
+              fill="none" stroke="url(#bcSweepGrad)" stroke-width="3" opacity="0.95"/>
+
+        <text x="196" y="52"
               text-anchor="middle"
-              font-family="Space Grotesk"
+              font-family="Space Grotesk, sans-serif"
               font-size="30"
               fill="white">
           BetweenCloud
         </text>
       </svg>
-    </div>
+    </a>
 
-    <div class="nav__links">
+    <div class="nav__links" aria-label="Primary navigation">
       <a href="#programmes">Programmes</a>
-      <a href="#framework">Framework</a>
-      <a href="#cases">Cases</a>
-      <a href="#engagement">Engagement</a>
+      <a href="#framework">Governance Framework</a>
+      <a href="#cases">Case Outcomes</a>
+      <a href="#engagement">Engagement Criteria</a>
     </div>
 
-    <button class="btn primary magnetic">Engage Advisory</button>
+    <button class="btn primary magnetic" type="button">Engage Architecture Advisory</button>
   </div>
 </nav>
 
 <header class="hero" id="top">
   <div class="container hero__inner">
     <h1>
-      Enterprise Architecture Advisory —
+      Enterprise Microsoft Architecture Advisory —
       <span class="gradient">Structured. Governed. Defensible.</span>
     </h1>
     <p class="hero__sub">
-      Executive-led Microsoft 365 & Azure architecture programmes aligned to governance and board accountability.
+      Senior-led advisory programmes focused on identity governance, executive control frameworks,
+      and board-ready architecture transformation.
     </p>
+
+    <div class="hero__cta">
+      <button class="btn primary magnetic" type="button">Request a Scoping Call</button>
+      <a class="btn ghost" href="#programmes">View Programmes</a>
+    </div>
   </div>
 </header>
 
 <section class="section" id="programmes">
   <div class="container">
-    <h2>Advisory Programmes</h2>
+    <h2>Enterprise Advisory Programmes</h2>
 
     <div class="cards">
+      <article class="card reveal" data-spotlight>
+        <h3>Identity & Governance Stabilisation Programme</h3>
+        <p class="card-sub">Executive-led identity control redesign aligned to audit and board scrutiny.</p>
+        <ul>
+          <li>Enterprise identity baseline assessment</li>
+          <li>Conditional Access rationalisation</li>
+          <li>PIM & privileged role redesign</li>
+          <li>Governance Control Catalogue (domain mapped)</li>
+          <li>Formal HLD / LLD documentation pack</li>
+          <li>Design Authority checkpoints</li>
+        </ul>
+        <p class="card-outcome"><strong>Outcome:</strong> Reduced attack surface and defensible identity architecture.</p>
+        <div class="price">Engagements from £15,000</div>
+      </article>
 
-      <div class="card reveal">
-        <h3>Identity & Governance</h3>
-        <p>Enterprise identity baseline, Conditional Access redesign, and formalised privileged access governance.</p>
-        <div class="price">From £15,000</div>
-      </div>
+      <article class="card reveal" data-spotlight>
+        <h3>Secure Endpoint & Control Model Advisory</h3>
+        <p class="card-sub">Structured device governance aligned to enterprise identity architecture.</p>
+        <ul>
+          <li>Autopilot target-state modelling</li>
+          <li>Security baseline rationalisation</li>
+          <li>Compliance & control inheritance mapping</li>
+          <li>Privileged access boundary alignment</li>
+          <li>Operational runbooks & BAU transition artefacts</li>
+          <li>NFR & SLA mapping</li>
+        </ul>
+        <p class="card-outcome"><strong>Outcome:</strong> Policy-aligned endpoint estate governed by documented controls.</p>
+        <div class="price">Engagements from £15,000</div>
+      </article>
 
-      <div class="card reveal">
-        <h3>Secure Endpoint Architecture</h3>
-        <p>Autopilot strategy, security baseline modelling and device governance frameworks.</p>
-        <div class="price">From £15,000</div>
-      </div>
-
-      <div class="card reveal">
-        <h3>Cloud Landing Zone</h3>
-        <p>Target-state Azure governance hierarchy and structured transformation roadmap.</p>
-        <div class="price">From £15,000</div>
-      </div>
-
+      <article class="card reveal" data-spotlight>
+        <h3>Enterprise Cloud Architecture & Landing Zone Advisory</h3>
+        <p class="card-sub">Target-state Azure & Microsoft 365 governance architecture programme.</p>
+        <ul>
+          <li>Target-state HLD / LLD modelling</li>
+          <li>Landing zone governance hierarchy design</li>
+          <li>Identity trust boundary definition</li>
+          <li>Control mapping to compliance standards</li>
+          <li>Executive options appraisal</li>
+          <li>Phased transformation roadmap</li>
+        </ul>
+        <p class="card-outcome"><strong>Outcome:</strong> Structured cloud estate aligned to enterprise risk and compliance.</p>
+        <div class="price">Engagements from £15,000</div>
+      </article>
     </div>
   </div>
 </section>
 
 <section class="section alt" id="framework">
   <div class="container">
-    <h2>Governance Framework</h2>
-    <p class="reveal">
-      Structured HLD / LLD artefacts, design authority checkpoints and executive governance documentation.
+    <h2>Architecture Governance Framework</h2>
+
+    <p class="muted reveal">
+      Every engagement is delivered as a structured advisory programme with formal artefacts,
+      governance checkpoints, and evidence-ready outputs.
     </p>
+
+    <ul class="reveal">
+      <li>Governance Control Catalogue mapped to enterprise domains</li>
+      <li>Formal HLD / LLD documentation standards</li>
+      <li>Design Authority governance checkpoint packs</li>
+      <li>Risk & assurance mapping (objective → enforcement → evidence)</li>
+      <li>NFR & SLA definition aligned to resilience targets</li>
+      <li>Executive reporting artefacts suitable for board review</li>
+    </ul>
   </div>
 </section>
 
 <section class="section" id="cases">
   <div class="container">
-    <h2>Case Outcomes</h2>
+    <h2>Advisory Case Outcomes</h2>
 
-    <div class="case reveal">
-      <h3>Global Enterprise</h3>
-      <p>Identity consolidation and control governance implementation.</p>
+    <div class="case reveal" data-spotlight>
+      <h3>Global FMCG Enterprise (14,000+ Users)</h3>
+      <p>
+        Conditional Access consolidation across a multi-region Microsoft 365 estate, privileged role restructuring,
+        and governance telemetry for executive visibility.
+      </p>
+      <p><strong>Result:</strong> Reduced identity exposure and formalised ownership for access decisions.</p>
     </div>
 
-    <div class="case reveal">
-      <h3>Healthcare Transformation</h3>
-      <p>Audit-aligned identity redesign and operational handover framework.</p>
+    <div class="case reveal" data-spotlight>
+      <h3>Healthcare Identity Governance Transformation</h3>
+      <p>
+        Identity baseline redesign aligned to NHS governance frameworks with board-ready documentation and operational transition artefacts.
+      </p>
+      <p><strong>Result:</strong> Audit-aligned identity framework and defensible architecture posture.</p>
     </div>
   </div>
 </section>
@@ -122,16 +196,20 @@
 <section class="section alt" id="engagement">
   <div class="container">
     <h2>Engagement Criteria</h2>
+
     <ul class="reveal">
-      <li>£15,000 minimum programme</li>
-      <li>1,000+ user estates</li>
-      <li>Executive sponsorship required</li>
+      <li>Advisory engagements begin at <strong>£15,000</strong></li>
+      <li>Designed for <strong>1,000+ user</strong> environments</li>
+      <li><strong>Executive sponsorship</strong> required</li>
+      <li>Formal artefacts delivered (HLD/LLD, control catalogue, DA packs, runbooks)</li>
     </ul>
   </div>
 </section>
 
 <footer class="footer">
-  © <span id="year"></span> BetweenCloud
+  <div class="container">
+    © <span id="year"></span> BetweenCloud
+  </div>
 </footer>
 
 <script src="script.js"></script>
