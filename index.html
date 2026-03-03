@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Archinexus | Enterprise Architecture Advisory</title>
+  <meta name="description" content="Governance-first Microsoft 365 & Azure architecture advisory delivering defensible enterprise decisions." />
+  <meta name="theme-color" content="#061a13" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Ambient background -->
+  <div class="ambient" aria-hidden="true">
+    <div class="grid"></div>
+    <div class="diag"></div>
+    <div class="orb orb-a"></div>
+    <div class="orb orb-b"></div>
+    <div class="noise"></div>
+  </div>
+
+  <!-- Scroll progress -->
+  <div class="progress" aria-hidden="true">
+    <div class="progress__bar" id="progressBar"></div>
+  </div>
+
+  <header class="nav" id="top">
+    <div class="container nav__inner">
+      <a class="brand" href="#top" aria-label="Archinexus home">
+        <svg class="brand__svg" viewBox="0 0 520 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Archinexus">
+          <defs>
+            <linearGradient id="anGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#0f6f4a" />
+              <stop offset="100%" stop-color="#19c37d" />
+            </linearGradient>
+          </defs>
+
+          <!-- TL bracket -->
+          <path id="logoTL"
+                d="M72 40 L220 40 L220 62"
+                fill="none"
+                stroke="url(#anGrad)"
+                stroke-width="3"
+                stroke-linecap="square"
+                stroke-linejoin="miter" />
+
+          <!-- BR bracket -->
+          <path id="logoBR"
+                d="M300 74 L448 74 L448 52"
+                fill="none"
+                stroke="url(#anGrad)"
+                stroke-width="3"
+                stroke-linecap="square"
+                stroke-linejoin="miter" />
+
+          <text x="260" y="62"
+                text-anchor="middle"
+                font-family="Space Grotesk, sans-serif"
+                font-size="34"
+                fill="white"
+                letter-spacing="-0.4">
+            Archinexus
+          </text>
+        </svg>
+      </a>
+
+      <nav class="nav__links" aria-label="Primary navigation">
+        <a href="#programmes">Programmes</a>
+        <a href="#control-model">Control Model</a>
+        <a href="#framework">Framework</a>
+        <a href="#cases">Case Outcomes</a>
+        <a href="#engagement">Engagement</a>
+      </nav>
+
+      <div class="nav__actions">
+        <button class="btn btn--rail magnetic" type="button" data-open-modal="engage">
+          <span class="btn__label">Engage Advisory</span>
+          <span class="btn__rail"><span class="btn__runner"></span></span>
+        </button>
+
+        <button class="nav__burger" type="button" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false" id="burgerBtn">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="mobile" id="mobileMenu" hidden>
+      <button class="mobile__backdrop" type="button" aria-label="Close menu" id="mobileBackdrop"></button>
+      <div class="mobile__panel" role="dialog" aria-modal="true" aria-label="Menu">
+        <div class="mobile__top">
+          <div class="mobile__title">Archinexus</div>
+          <button class="icon-btn" type="button" aria-label="Close menu" id="closeMobileBtn">✕</button>
+        </div>
+
+        <nav class="mobile__links" aria-label="Mobile navigation">
+          <a href="#programmes">Programmes</a>
+          <a href="#control-model">Control Model</a>
+          <a href="#framework">Framework</a>
+          <a href="#cases">Case Outcomes</a>
+          <a href="#engagement">Engagement</a>
+        </nav>
+
+        <button class="btn btn--rail" type="button" data-open-modal="engage">
+          <span class="btn__label">Engage Advisory</span>
+          <span class="btn__rail"><span class="btn__runner"></span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero section">
+      <div class="container hero__inner">
+        <div class="section__rail reveal">
+          <span class="rail__node"></span>
+          <span class="rail__line"><span class="rail__runner"></span></span>
+          <span class="rail__node"></span>
+        </div>
+
+        <h1 class="reveal">
+          Enterprise Architecture Advisory —
+          <span class="gradient">Governance & Decision Design</span>
+        </h1>
+
+        <p class="hero__sub reveal">
+          Governance-first Microsoft 365 & Azure advisory delivering defensible decisions, board-ready artefacts, and operational ownership.
+        </p>
+
+        <div class="hero__cta reveal">
+          <button class="btn btn--primary magnetic" type="button" data-open-modal="engage">Request a Scoping Call</button>
+          <a class="btn btn--ghost" href="#programmes">View Programmes</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROGRAMMES -->
+    <section class="section" id="programmes">
+      <div class="container">
+        <div class="section__head">
+          <div class="section__rail reveal">
+            <span class="rail__node"></span>
+            <span class="rail__line"><span class="rail__runner"></span></span>
+            <span class="rail__node"></span>
+          </div>
+          <h2 class="reveal">Enterprise Advisory Programmes</h2>
+          <p class="muted reveal">Senior-led engagements with defined artefacts, governance checkpoints, and BAU acceptance criteria.</p>
+        </div>
+
+        <div class="cards">
+          <article class="card frame reveal" data-spotlight>
+            <div class="frame__corners" aria-hidden="true"></div>
+            <h3>Identity & Governance Stabilisation</h3>
+            <p class="muted">Entra control redesign, privileged identity model, and audit-aligned governance baselines.</p>
+            <ul>
+              <li>Conditional Access rationalisation</li>
+              <li>Privileged access patterns (PIM/PAM)</li>
+              <li>Control catalogue & evidence mapping</li>
+              <li>Design Authority packs & decision log</li>
+            </ul>
+            <div class="price">From £15,000</div>
+          </article>
+
+          <article class="card frame reveal" data-spotlight>
+            <div class="frame__corners" aria-hidden="true"></div>
+            <h3>Endpoint Control Model</h3>
+            <p class="muted">Device governance aligned to identity boundaries with operational guardrails and runbooks.</p>
+            <ul>
+              <li>Intune / Autopilot target state</li>
+              <li>Security baseline & compliance model</li>
+              <li>Telemetry patterns & thresholds</li>
+              <li>Cutover / rollback / validation packs</li>
+            </ul>
+            <div class="price">From £15,000</div>
+          </article>
+
+          <article class="card frame reveal" data-spotlight>
+            <div class="frame__corners" aria-hidden="true"></div>
+            <h3>Cloud Architecture & Landing Zone</h3>
+            <p class="muted">Azure governance hierarchy, guardrails, and executive-ready options for platform decisions.</p>
+            <ul>
+              <li>Target architecture (Azure + M365)</li>
+              <li>Landing zone guardrails</li>
+              <li>Operational assumptions & SLAs</li>
+              <li>Roadmap & acceptance criteria</li>
+            </ul>
+            <div class="price">From £15,000</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTROL MODEL (architecture diagram section) -->
+    <section class="section section--alt" id="control-model">
+      <div class="container">
+        <div class="section__head">
+          <div class="section__rail reveal">
+            <span class="rail__node"></span>
+            <span class="rail__line"><span class="rail__runner"></span></span>
+            <span class="rail__node"></span>
+          </div>
+          <h2 class="reveal">Enterprise Control Model</h2>
+          <p class="muted reveal">A simple architecture view that shows how governance becomes enforceable and evidenced.</p>
+        </div>
+
+        <div class="diagram frame reveal" data-spotlight>
+          <div class="frame__corners" aria-hidden="true"></div>
+
+          <div class="diagram__col">
+            <div class="diagram__node">Identity Governance</div>
+            <div class="diagram__line"></div>
+            <div class="diagram__node">Endpoint Control</div>
+            <div class="diagram__line"></div>
+            <div class="diagram__node">Platform Architecture</div>
+            <div class="diagram__line"></div>
+            <div class="diagram__node">Operational Evidence</div>
+          </div>
+
+          <div class="diagram__note muted">
+            Control flows downward: decisions become guardrails, guardrails become operations, operations become evidence.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FRAMEWORK -->
+    <section class="section" id="framework">
+      <div class="container">
+        <div class="section__head">
+          <div class="section__rail reveal">
+            <span class="rail__node"></span>
+            <span class="rail__line"><span class="rail__runner"></span></span>
+            <span class="rail__node"></span>
+          </div>
+          <h2 class="reveal">Governance Framework</h2>
+          <p class="muted reveal">Every engagement is delivered as a structured governance package designed to be defensible under audit and board scrutiny.</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="case frame reveal" data-spotlight>
+            <div class="frame__corners" aria-hidden="true"></div>
+            <h3>What we deliver</h3>
+            <ul>
+              <li>HLD/LLD + NFRs + SLAs + operating assumptions</li>
+              <li>Control catalogue mapped to enforcement and evidence</li>
+              <li>Options Appraisal + RAID + decision log</li>
+              <li>Runbooks: cutover, rollback, validation</li>
+              <li>RACI ownership and BAU acceptance criteria</li>
+            </ul>
+          </div>
+
+          <div class="case frame reveal" data-spotlight>
+            <div class="frame__corners" aria-hidden="true"></div>
+            <h3>How decisions stay defensible</h3>
+            <ul>
+              <li>Explicit scope boundaries + exclusions</li>
+              <li>Exception handling with time-boxed review</li>
+              <li>Controls mapped: objective → enforcement → evidence</li>
+              <li>Operational telemetry aligned to governance checkpoints</li>
+              <li>Executive summaries suitable for board review</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CASE OUTCOMES -->
+    <section class="section section--alt" id="cases">
+      <div class="container">
+        <div class="section__head">
+          <div class="section__rail reveal">
+            <span class="rail__node"></span>
+            <span class="rail__line"><span class="rail__runner"></span></span>
+            <span class="rail__node"></span>
+          </div>
+          <h2 class="reveal">Case Outcomes</h2>
+          <p class="muted reveal">Outcomes are presented as governance and evidence — not just “work completed”.</p>
+        </div>
+
+        <div class="cases">
+          <details class="case frame reveal" data-spotlight>
+            <summary>
+              <span>Global Enterprise — Identity Governance Hardening</span>
+              <span class="chev">+</span>
+            </summary>
+            <div class="frame__corners" aria-hidden="true"></div>
+            <div class="case__body">
+              <p><strong>Focus:</strong> Conditional Access rationalisation, privileged access governance, audit-ready evidence.</p>
+              <p><strong>Artefacts:</strong> Control catalogue, decision log, operational guardrails, BAU acceptance criteria.</p>
+              <p><strong>Outcome:</strong> Reduced identity exposure with clear accountability and evidence trails.</p>
+            </div>
+          </details>
+
+          <details class="case frame reveal" data-spotlight>
+            <summary>
+              <span>Public Sector — Board-ready Architecture Pack</span>
+              <span class="chev">+</span>
+            </summary>
+            <div class="frame__corners" aria-hidden="true"></div>
+            <div class="case__body">
+              <p><strong>Focus:</strong> Formal governance packs (Options Appraisal, RAID, runbooks) and approvals through authority.</p>
+              <p><strong>Artefacts:</strong> Design Authority papers, runbooks, RACI, operational handover pack.</p>
+              <p><strong>Outcome:</strong> Defensible decisions with structured BAU ownership.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ENGAGEMENT -->
+    <section class="section" id="engagement">
+      <div class="container">
+        <div class="section__head">
+          <div class="section__rail reveal">
+            <span class="rail__node"></span>
+            <span class="rail__line"><span class="rail__runner"></span></span>
+            <span class="rail__node"></span>
+          </div>
+          <h2 class="reveal">Engagement</h2>
+          <p class="muted reveal">Designed for enterprise estates where governance, security and operational ownership are non-negotiable.</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="case frame reveal" data-spotlight>
+            <div class="frame__corners" aria-hidden="true"></div>
+            <h3>Entry criteria</h3>
+            <ul>
+              <li>Minimum engagement: <strong>£15,000</strong></li>
+              <li>Executive sponsor required</li>
+              <li>Ownership model agreed (RACI + BAU)</li>
+              <li>Evidence and artefacts delivered as standard</li>
+            </ul>
+          </div>
+
+          <div class="case frame reveal" data-spotlight>
+            <div class="frame__corners" aria-hidden="true"></div>
+            <h3>How to start</h3>
+            <p class="muted">Click engage to open the scoping template. You can copy and paste into email or a ticket.</p>
+            <button class="btn btn--primary magnetic" type="button" data-open-modal="engage">Engage Advisory</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div>© <span id="year"></span> Archinexus</div>
+        <div class="footer__right">Governance-first • Defensible architecture • Senior-led</div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Modal -->
+  <div class="modal" id="engageModal" hidden>
+    <button class="modal__backdrop" type="button" aria-label="Close" data-close-modal></button>
+
+    <div class="modal__panel" role="dialog" aria-modal="true" aria-label="Engage Advisory" tabindex="-1">
+      <div class="modal__top">
+        <div class="modal__title">Engage Advisory</div>
+        <button class="icon-btn" type="button" aria-label="Close" data-close-modal>✕</button>
+      </div>
+
+      <p class="muted">Use the template below for scoping. Copy it, then email your request.</p>
+
+      <div class="modal__actions">
+        <a class="btn btn--primary" id="emailLink" href="#" rel="noopener">Email engagement request</a>
+        <button class="btn btn--ghost" type="button" id="copyTemplateBtn">Copy scoping template</button>
+      </div>
+
+      <pre class="template" id="scopingTemplate">Organisation:
+User count:
+Tenant(s) / Regions:
+Programme interest:
+Current pain points:
+Timeline:
+Key stakeholders:
+Constraints / compliance:
+</pre>
+
+      <div class="toast" id="toast" aria-live="polite" aria-atomic="true"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
