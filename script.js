@@ -1,73 +1,64 @@
-document.getElementById("year").textContent = new Date().getFullYear();
+document.getElementById("year").textContent=new Date().getFullYear();
 
-/* Smooth Scroll */
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener("click", function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute("href"));
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  });
+/* Scroll spy */
+const sections=document.querySelectorAll("section");
+const links=document.querySelectorAll(".nav__links a");
+
+window.addEventListener("scroll",()=>{
+ let current="";
+ sections.forEach(sec=>{
+   const rect=sec.getBoundingClientRect();
+   if(rect.top<=window.innerHeight*0.35 && rect.bottom>=window.innerHeight*0.35){
+     current=sec.id;
+   }
+ });
+ links.forEach(l=>{
+   l.classList.remove("active");
+   if(l.getAttribute("href")==="#"+current){
+     l.classList.add("active");
+   }
+ });
 });
 
-/* Scroll Spy (underline only) */
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll(".nav__links a");
+/* Reveal */
+const reveals=document.querySelectorAll(".reveal");
+function reveal(){
+ reveals.forEach(el=>{
+  const rect=el.getBoundingClientRect();
+  if(rect.top<window.innerHeight*0.85){
+    el.classList.add("visible");
+  }
+ });
+}
+window.addEventListener("scroll",reveal);
+window.addEventListener("load",reveal);
 
-function updateActiveNav() {
-  let current = "";
-  sections.forEach(section => {
-    const rect = section.getBoundingClientRect();
-    if (rect.top <= window.innerHeight * 0.35 &&
-        rect.bottom >= window.innerHeight * 0.35) {
-      current = section.getAttribute("id");
-    }
-  });
-
-  navLinks.forEach(link => {
-    link.classList.remove("active");
-    if (link.getAttribute("href") === `#${current}`) {
-      link.classList.add("active");
-    }
-  });
+/* Magnetic button */
+const magnetic=document.querySelector(".magnetic");
+if(magnetic){
+ magnetic.addEventListener("mousemove",(e)=>{
+   const rect=magnetic.getBoundingClientRect();
+   const x=e.clientX-rect.left-rect.width/2;
+   const y=e.clientY-rect.top-rect.height/2;
+   magnetic.style.transform=`translate(${x*0.15}px,${y*0.15}px)`;
+ });
+ magnetic.addEventListener("mouseleave",()=>{
+   magnetic.style.transform="translate(0,0)";
+ });
 }
 
-window.addEventListener("scroll", updateActiveNav);
-window.addEventListener("load", updateActiveNav);
+/* Top progress bar */
+const bar=document.createElement("div");
+bar.style.position="fixed";
+bar.style.top="0";
+bar.style.left="0";
+bar.style.height="3px";
+bar.style.width="0%";
+bar.style.background="linear-gradient(90deg,#7c5cff,#22d3ee)";
+bar.style.zIndex="2000";
+document.body.appendChild(bar);
 
-/* Reveal animation */
-const reveals = document.querySelectorAll(".reveal");
-
-function revealOnScroll() {
-  reveals.forEach(el => {
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight * 0.85) {
-      el.classList.add("visible");
-    }
-  });
-}
-
-window.addEventListener("scroll", revealOnScroll);
-window.addEventListener("load", revealOnScroll);
-
-/* Top Progress Line */
-const progressBar = document.createElement("div");
-progressBar.style.position = "fixed";
-progressBar.style.top = "0";
-progressBar.style.left = "0";
-progressBar.style.height = "3px";
-progressBar.style.width = "0%";
-progressBar.style.background =
-  "linear-gradient(90deg,#7c5cff,#22d3ee)";
-progressBar.style.zIndex = "2000";
-progressBar.style.transition = "width 0.15s linear";
-document.body.appendChild(progressBar);
-
-window.addEventListener("scroll", () => {
-  const scrollTop = window.scrollY;
-  const docHeight =
-    document.body.scrollHeight - window.innerHeight;
-  const progress = (scrollTop / docHeight) * 100;
-  progressBar.style.width = progress + "%";
+window.addEventListener("scroll",()=>{
+ const progress=(window.scrollY/(document.body.scrollHeight-window.innerHeight))*100;
+ bar.style.width=progress+"%";
 });
