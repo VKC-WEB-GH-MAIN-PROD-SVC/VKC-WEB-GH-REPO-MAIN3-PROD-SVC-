@@ -1,205 +1,139 @@
-:root{
-  --bg:#050814;
-  --text:#ffffff;
-  --muted:rgba(255,255,255,0.6);
-  --accent:#7c5cff;
-  --accent2:#22d3ee;
-  --ease:cubic-bezier(0.22,1,0.36,1);
-}
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BetweenCloud | Enterprise Architecture Advisory</title>
 
-*{box-sizing:border-box}
+<link rel="stylesheet" href="styles.css" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
 
-body{
-  margin:0;
-  font-family:'Inter',sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  line-height:1.7;
-  overflow-x:hidden;
-}
+<div class="ambient-bg"></div>
 
-/* ================= NAV ================= */
+<nav class="nav">
+  <div class="container nav__inner">
 
-.nav{
-  position:sticky;
-  top:0;
-  background:rgba(5,8,20,0.85);
-  backdrop-filter:blur(14px);
-  padding:18px 0;
-  z-index:1000;
-  border-bottom:1px solid rgba(255,255,255,0.04);
-}
+    <div class="brand">
+      <svg viewBox="0 0 400 90" class="brand-svg" xmlns="http://www.w3.org/2000/svg">
 
-.nav__inner{
-  max-width:1150px;
-  margin:auto;
-  padding:0 28px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:26px;
-}
+        <defs>
+          <linearGradient id="movingGradient" x1="0%" y1="0%" x2="200%" y2="0%">
+            <stop offset="0%" stop-color="#7c5cff"/>
+            <stop offset="50%" stop-color="#22d3ee"/>
+            <stop offset="100%" stop-color="#7c5cff"/>
+          </linearGradient>
+        </defs>
 
-/* ================= LOGO ================= */
+        <rect x="18" y="22" width="364" height="46"
+              rx="12" ry="12"
+              fill="none"
+              stroke="url(#movingGradient)"
+              stroke-width="3"
+              class="logo-frame"/>
 
-.brand-svg{
-  width:220px;
-}
+        <text x="200" y="54"
+              text-anchor="middle"
+              font-family="Space Grotesk"
+              font-size="30"
+              fill="white">
+          BetweenCloud
+        </text>
+      </svg>
+    </div>
 
-/* Animated gradient stroke sweep */
-.logo-frame-base{
-  stroke:url(#brandGradientStatic);
-}
+    <div class="nav__links">
+      <a href="#programmes">Programmes</a>
+      <a href="#framework">Framework</a>
+      <a href="#cases">Cases</a>
+      <a href="#engagement">Engagement</a>
+    </div>
 
-.logo-frame-anim{
-  stroke:url(#brandGradientAnimated);
-  animation:gradientShift 8s ease-in-out infinite alternate;
-}
+    <button class="btn primary magnetic">Engage Advisory</button>
+  </div>
+</nav>
 
-@keyframes gradientShift{
-  0% { opacity:0.4; }
-  50% { opacity:1; }
-  100% { opacity:0.4; }
-}
+<header class="hero" id="top">
+  <div class="container hero__inner">
+    <h1>
+      Enterprise Architecture Advisory —
+      <span class="gradient">Structured. Governed. Defensible.</span>
+    </h1>
+    <p class="hero__sub">
+      Executive-led Microsoft 365 & Azure architecture programmes aligned to governance and board accountability.
+    </p>
+  </div>
+</header>
 
-/* ================= NAV LINKS ================= */
+<section class="section" id="programmes">
+  <div class="container">
+    <h2>Advisory Programmes</h2>
 
-.nav__links{
-  display:flex;
-  gap:34px;
-}
+    <div class="cards">
 
-.nav__links a{
-  position:relative;
-  text-decoration:none;
-  color:var(--text);
-  font-size:0.92rem;
-  letter-spacing:0.4px;
-  padding:4px 0;
-  transition:opacity .3s ease;
-}
+      <div class="card reveal">
+        <h3>Identity & Governance</h3>
+        <p>Enterprise identity baseline, Conditional Access redesign, and formalised privileged access governance.</p>
+        <div class="price">From £15,000</div>
+      </div>
 
-/* underline only */
-.nav__links a::after{
-  content:"";
-  position:absolute;
-  left:0;
-  bottom:-6px;
-  width:0%;
-  height:2px;
-  background:linear-gradient(90deg,var(--accent),var(--accent2));
-  transition:width .3s ease;
-}
+      <div class="card reveal">
+        <h3>Secure Endpoint Architecture</h3>
+        <p>Autopilot strategy, security baseline modelling and device governance frameworks.</p>
+        <div class="price">From £15,000</div>
+      </div>
 
-.nav__links a:hover::after,
-.nav__links a.active::after{
-  width:100%;
-}
+      <div class="card reveal">
+        <h3>Cloud Landing Zone</h3>
+        <p>Target-state Azure governance hierarchy and structured transformation roadmap.</p>
+        <div class="price">From £15,000</div>
+      </div>
 
-/* KEEP TEXT WHITE */
-.nav__links a.active{
-  color:var(--text);
-}
+    </div>
+  </div>
+</section>
 
-/* ================= CTA ================= */
+<section class="section alt" id="framework">
+  <div class="container">
+    <h2>Governance Framework</h2>
+    <p class="reveal">
+      Structured HLD / LLD artefacts, design authority checkpoints and executive governance documentation.
+    </p>
+  </div>
+</section>
 
-.btn{
-  padding:14px 28px;
-  border-radius:24px;
-  border:none;
-  cursor:pointer;
-  font-weight:600;
-  font-size:0.9rem;
-}
+<section class="section" id="cases">
+  <div class="container">
+    <h2>Case Outcomes</h2>
 
-.btn.primary{
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  color:#fff;
-  transition:all .45s var(--ease);
-}
+    <div class="case reveal">
+      <h3>Global Enterprise</h3>
+      <p>Identity consolidation and control governance implementation.</p>
+    </div>
 
-.btn.primary:hover{
-  transform:translateY(-4px);
-  box-shadow:0 18px 40px rgba(124,92,255,0.35);
-}
+    <div class="case reveal">
+      <h3>Healthcare Transformation</h3>
+      <p>Audit-aligned identity redesign and operational handover framework.</p>
+    </div>
+  </div>
+</section>
 
-/* ================= HERO ================= */
+<section class="section alt" id="engagement">
+  <div class="container">
+    <h2>Engagement Criteria</h2>
+    <ul class="reveal">
+      <li>£15,000 minimum programme</li>
+      <li>1,000+ user estates</li>
+      <li>Executive sponsorship required</li>
+    </ul>
+  </div>
+</section>
 
-.hero{
-  padding:150px 0 110px;
-  text-align:center;
-}
+<footer class="footer">
+  © <span id="year"></span> BetweenCloud
+</footer>
 
-.hero h1{
-  font-family:'Space Grotesk',sans-serif;
-  font-size:clamp(2.2rem,4vw,3.2rem);
-  line-height:1.2;
-}
-
-.hero__sub{
-  max-width:680px;
-  margin:28px auto 0;
-  color:var(--muted);
-}
-
-.gradient{
-  background:linear-gradient(90deg,var(--accent),var(--accent2));
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-
-/* ================= CARDS ================= */
-
-.section{ padding:110px 0; }
-
-.cards{
-  max-width:1150px;
-  margin:auto;
-  padding:0 28px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-  gap:40px;
-}
-
-.card{
-  background:rgba(255,255,255,0.035);
-  padding:38px;
-  border-radius:18px;
-  border:1px solid rgba(255,255,255,0.06);
-  transition:all .55s var(--ease);
-}
-
-.card:hover{
-  transform:translateY(-12px);
-  background:rgba(0,0,0,0.68);
-  border-color:rgba(124,92,255,0.55);
-  box-shadow:0 30px 70px rgba(0,0,0,0.5);
-}
-
-/* ================= REVEAL ================= */
-
-.reveal{
-  opacity:0;
-  transform:translateY(40px);
-  transition:opacity .8s var(--ease), transform .8s var(--ease);
-}
-
-.reveal.visible{
-  opacity:1;
-  transform:translateY(0);
-}
-
-/* ================= FOOTER ================= */
-
-.footer{
-  padding:70px 0;
-  text-align:center;
-  opacity:0.55;
-}
-
-/* ================= RESPONSIVE ================= */
-
-@media (max-width:768px){
-  .nav__links{ display:none; }
-  .brand-svg{ width:190px; }
-}
+<script src="script.js"></script>
+</body>
+</html>
