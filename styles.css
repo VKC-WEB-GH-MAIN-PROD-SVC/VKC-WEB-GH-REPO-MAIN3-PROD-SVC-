@@ -1367,6 +1367,9 @@ margin-top:5;
   display:flex;
   justify-content:center;
   margin-top:-40px;
+  contain: layout paint;
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 /* ---------- lanyard ---------- */
@@ -1376,9 +1379,8 @@ margin-top:5;
   flex-direction:column;
   align-items:center;
   transform-origin:top center;
-
   animation:lanyardSwing 6.5s ease-in-out infinite;
-
+  backface-visibility: hidden;
   will-change: transform;
   transform: translateZ(0);
 }
