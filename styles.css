@@ -1380,7 +1380,7 @@ margin-top:5;
   flex-direction:column;
   align-items:center;
   transform-origin:top center;
-  animation:lanyardSwing 6.5s ease-in-out infinite;
+  animation:lanyardSwing 7.0s ease-in-out infinite;
   backface-visibility: hidden;
   will-change: transform;
   transform: translateZ(0);
@@ -1929,7 +1929,7 @@ bottom:22px;
 #authority .badge-footer{
   font-size:9px;
   letter-spacing:.22em;
-  )
+}
 
 @media (max-width: 900px){
 
