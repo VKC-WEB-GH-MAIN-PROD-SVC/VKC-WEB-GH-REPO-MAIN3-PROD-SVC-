@@ -103,7 +103,7 @@ padding-bottom:70px;
   width:560px;
   height:560px;
   border-radius:50%;
-  filter: blur(150px);
+  filter: blur(110px);
   opacity:0.18;
   transform: translate3d(0,0,0);
   will-change: transform;
@@ -1927,5 +1927,27 @@ bottom:22px;
   font-size:9px;
   letter-spacing:.22em;
 }
+
+@media (max-width: 900px){
+
+  .nav{
+    backdrop-filter:none;
+  }
+
+  .archonex-spec{
+    backdrop-filter:none;
+  }
+
+  #authority .identity-cell{
+    backdrop-filter:none;
+  }
+
+  #authority .contact-box{
+    backdrop-filter:none;
+  }
+
+  #authority .domain-tags span{
+    backdrop-filter:none;
+  }
 
 }
