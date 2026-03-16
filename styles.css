@@ -1367,7 +1367,8 @@ margin-top:5;
   display:flex;
   justify-content:center;
   margin-top:-40px;
-  contain: layout paint;
+  contain: layout;
+  overflow: visible;
   transform: translateZ(0);
   will-change: transform;
 }
@@ -1928,7 +1929,7 @@ bottom:22px;
 #authority .badge-footer{
   font-size:9px;
   letter-spacing:.22em;
-}
+  )
 
 @media (max-width: 900px){
 
