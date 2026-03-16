@@ -1,0 +1,375 @@
+:root {
+  --bg: #061a13;
+  --bg2: #04120d;
+  --text: #ffffff;
+  --muted: rgba(255, 255, 255, 0.72);
+  --accent: #0f6f4a;
+  --accent2: #19c37d;
+  --glass: rgba(255, 255, 255, 0.035);
+  --border: rgba(255, 255, 255, 0.075);
+  --shadow: 0 34px 84px rgba(0, 0, 0, 0.48);
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui;
+  color: var(--text);
+  background:
+    radial-gradient(
+      1100px 800px at 14% -8%,
+      rgba(15, 111, 74, 0.22),
+      transparent 55%
+    ),
+    radial-gradient(
+      900px 700px at 100% 6%,
+      rgba(25, 195, 125, 0.18),
+      transparent 60%
+    ),
+    linear-gradient(180deg, var(--bg), var(--bg2));
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ambient background */
+
+.ambient {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.11;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+  background-size: 54px 54px;
+}
+
+.orb {
+  position: absolute;
+  width: 560px;
+  height: 560px;
+  border-radius: 50%;
+  filter: blur(150px);
+  opacity: 0.18;
+}
+
+.orb-a {
+  background: var(--accent);
+  top: -240px;
+  left: -240px;
+}
+
+.orb-b {
+  background: var(--accent2);
+  bottom: -260px;
+  right: -260px;
+}
+
+/* Header */
+
+.header {
+  padding: 20px 40px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(6, 26, 19, 0.84);
+  backdrop-filter: blur(16px);
+  display: flex;
+  align-items: center;
+}
+
+/* Brand */
+
+.brand {
+  display: inline-flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.brand__name {
+  font-family: 'Space Grotesk';
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.brand__tag {
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Logo brackets */
+
+.brand::before,
+.brand::after,
+.brand__name::before,
+.brand__name::after {
+  content: '';
+  position: absolute;
+  background: var(--accent2);
+  box-shadow: 0 0 12px rgba(25, 195, 125, 0.55);
+}
+
+.brand::before {
+  left: -6px;
+  top: -4px;
+  width: 2px;
+  height: 14px;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  animation: logoTLv 6s ease infinite;
+}
+
+.brand__name::before {
+  left: -6px;
+  top: -4px;
+  width: 14px;
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: logoTLh 6s 0.35s ease infinite;
+}
+
+.brand::after {
+  right: -6px;
+  bottom: -4px;
+  width: 2px;
+  height: 14px;
+  transform: scaleY(0);
+  transform-origin: top;
+  animation: logoBRv 6s 0.7s ease infinite;
+}
+
+.brand__name::after {
+  right: -6px;
+  bottom: -4px;
+  width: 14px;
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: right;
+  animation: logoBRh 6s 1.05s ease infinite;
+}
+
+@keyframes logoTLv {
+  0% {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+  10% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+  75% {
+    transform: scaleY(1);
+  }
+  85% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(0);
+  }
+}
+
+@keyframes logoTLh {
+  0% {
+    transform: scaleX(0);
+  }
+  20% {
+    transform: scaleX(1);
+  }
+  75% {
+    transform: scaleX(1);
+  }
+  85% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(0);
+  }
+}
+
+@keyframes logoBRv {
+  0% {
+    transform: scaleY(0);
+  }
+  30% {
+    transform: scaleY(1);
+  }
+  75% {
+    transform: scaleY(1);
+  }
+  85% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(0);
+  }
+}
+
+@keyframes logoBRh {
+  0% {
+    transform: scaleX(0);
+  }
+  40% {
+    transform: scaleX(1);
+  }
+  75% {
+    transform: scaleX(1);
+  }
+  85% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(0);
+  }
+}
+
+/* Main area */
+
+.main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+/* Frame */
+
+.frame {
+  position: relative;
+  background: var(--glass);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 40px;
+  width: 640px;
+  box-shadow: var(--shadow);
+}
+
+.frame__corners {
+  position: absolute;
+  inset: 16px;
+  pointer-events: none;
+}
+
+.frame__corners::before,
+.frame__corners::after {
+  content: '';
+  position: absolute;
+  width: 128px;
+  height: 74px;
+}
+
+.frame__corners::before {
+  top: 0;
+  left: 0;
+  border-left: 2px solid rgba(25, 195, 125, 0.56);
+  border-top: 2px solid rgba(25, 195, 125, 0.56);
+}
+
+.frame__corners::after {
+  bottom: 0;
+  right: 0;
+  border-right: 2px solid rgba(25, 195, 125, 0.56);
+  border-bottom: 2px solid rgba(25, 195, 125, 0.56);
+}
+
+/* Runner line */
+
+.runner {
+  height: 2px;
+  margin: 24px 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.06),
+    rgba(25, 195, 125, 0.3),
+    rgba(255, 255, 255, 0.06)
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+.runner::after {
+  content: '';
+  position: absolute;
+  left: -20%;
+  width: 20%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--accent),
+    var(--accent2),
+    transparent
+  );
+  animation: run 3s linear infinite;
+}
+
+@keyframes run {
+  to {
+    transform: translateX(600%);
+  }
+}
+
+/* Footer */
+
+.footer {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(6, 26, 19, 0.84);
+  border-top: 1px solid rgba(255, 255, 255, 0.045);
+}
+
+.footer__text {
+  position: relative;
+  padding: 6px 16px;
+  font-size: 0.78rem;
+  opacity: 0.8;
+}
+
+.footer__text::before,
+.footer__text::after,
+.footer__text span::before,
+.footer__text span::after {
+  content: '';
+  position: absolute;
+  background: var(--accent2);
+  box-shadow: 0 0 12px rgba(25, 195, 125, 0.55);
+}
+
+.footer__text::before {
+  left: -6px;
+  top: -4px;
+  width: 2px;
+  height: 14px;
+}
+
+.footer__text span::before {
+  left: -6px;
+  top: -4px;
+  width: 14px;
+  height: 2px;
+}
+
+.footer__text::after {
+  right: -6px;
+  bottom: -4px;
+  width: 2px;
+  height: 14px;
+}
+
+.footer__text span::after {
+  right: -6px;
+  bottom: -4px;
+  width: 14px;
+  height: 2px;
+}
