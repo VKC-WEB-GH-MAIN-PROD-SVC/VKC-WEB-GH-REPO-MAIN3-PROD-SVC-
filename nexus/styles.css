@@ -89,6 +89,8 @@ body {
   display: inline-flex;
   flex-direction: column;
   position: relative;
+  text-decoration: none;
+  color: inherit;
 }
 
 .brand__name {
@@ -105,6 +107,9 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
+.brand:visited {
+  color: inherit;
+}
 /* Logo brackets */
 
 .brand::before,
